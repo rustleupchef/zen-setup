@@ -38,6 +38,8 @@ def language_packs(source_path, dest_path, mozconfig, mozconfig_output_path) -> 
     # currently only supports linux and windows
     if sys.platform == "linux":
         os.system("sh  scripts/update-en-US-packs.sh")
+        return
+    
     shutil.copytree(source_path, dest_path, dirs_exist_ok=True);
 
     #editing mozconfig
@@ -67,9 +69,9 @@ def main() -> None:
 
     #grabbing language pack related files
     MOZ_CONF_DIR = os.path.join(DESKTOP_DIR, "configs", "common", "mozconfig") # dir for mozconfig
-    MOZ_CONF_OUTPUT_DIR = os.path.join(DESKTOP_DIR, "engine", "browser", "locales") # output dir for mozconfig
+    MOZ_CONF_OUTPUT_DIR = os.path.join(DESKTOP_DIR, "engine") # output dir for mozconfig
     LANGUAGE_PACKS_DIR = os.path.join(DESKTOP_DIR, "l10n", "en-US", "browser", "browser") # dir for language packs
-    LANGUAGE_PACKS_OUTPUT_DIR = os.path.join(MOZ_CONF_OUTPUT_DIR, "en-US", "browser") # output dir for language packs
+    LANGUAGE_PACKS_OUTPUT_DIR = os.path.join(MOZ_CONF_OUTPUT_DIR, "browser", "locales", "en-US", "browser") # output dir for language packs
 
     #check if url's are valid
     if not check_url(FORKED_REPO):
