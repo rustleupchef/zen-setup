@@ -3,8 +3,12 @@ import requests
 import os
 import sys
 import shutil
+import threading
 
 load_dotenv(find_dotenv(), override=True)
+
+def cpu_limiter(percent = 50) -> None:
+    os.system(f"cpulimit -e rustc -l {percent}")
 
 def input_request(prompt = "Are you okay continuing?", 
                   yes = "Y", 
@@ -91,6 +95,9 @@ def main() -> None:
     language_packs(LANGUAGE_PACKS_DIR, LANGUAGE_PACKS_OUTPUT_DIR, MOZ_CONF_DIR, MOZ_CONF_OUTPUT_DIR)
 
     if not input_request("Would you like to build the browser?"): return
+
+    if sys.platform == "linux":
+        threading.Thread(target=cpu_limiter).start()
     os.system(f"cd \"{DESKTOP_DIR}\" && npm run build")
 
 if __name__ == "__main__":
