@@ -2,7 +2,7 @@
 This is some code I made to quickly setup the zen browser, so you can run code locally. The reason I made this is because the docs are mainly designed for windows, and even then the documentation can be a little trick, so I decided to make some code to automatically setup the zen-browser on both windows and linux.
 
 ## Mac
-Mac support is currently in the work, but the code used to run windows should also work just fine with macs, but the code is guaranteed to work on macs.
+Mac support is currently in the work, but the code used to run windows should also work just fine with macs, but the code is not guaranteed to work on macs.
 
 # Usage
 First thing you need to do is go into the directory that you want to add the code
