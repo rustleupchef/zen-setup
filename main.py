@@ -41,7 +41,7 @@ def check_url(url: str) -> bool:
 def language_packs(source_path, dest_path, mozconfig, mozconfig_output_path) -> None:
     # currently only supports linux and windows
     if sys.platform == "linux":
-        os.system("sh  scripts/update-en-US-packs.sh")
+        os.system("cd desktop && sh  scripts/update-en-US-packs.sh")
         return
     
     shutil.copytree(source_path, dest_path, dirs_exist_ok=True);
