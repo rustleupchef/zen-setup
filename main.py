@@ -4,12 +4,13 @@ import os
 import sys
 import shutil
 import threading
+import subprocess
 
 load_dotenv(find_dotenv(), override=True)
 
 def cpu_limiter(percent = 50) -> None:
-    os.system(f"cpulimit -e rustc -l {percent}")
-
+    subprocess.run(["cpulimit", "-e", "rustc", "-l", str(percent)], shell=True, check=True)
+    
 def input_request(prompt = "Are you okay continuing?", 
                   yes = "Y", 
                   no = "n", 
