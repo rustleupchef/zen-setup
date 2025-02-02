@@ -29,9 +29,11 @@ The file should contain:
 ```js
 FORKED_REPO=https://github.com/rustleupchef/desktop
 L10N_REPO=https://github.com/rustleupchef/l10n-packs
+TERMINATE=false
 ```
 You NEED to change FORKED_REPO to your fork of the zen-browser, but if you don't have to assign L10N_REPO (as in you can leave it blank)
-I would highly suggest that you fork it regardless, but if you really don't want to the code will just grab the official zen-browser repo for l10n-packs
+I would highly suggest that you fork it regardless, but if you really don't want to, the code will just grab the official zen-browser repo for l10n-packs
+By default terminate will be false, but setting it to "true" will cause the setup files to delete themselves once the setup is done
 
 ## Run
 Now that you setup up the file and environment variables you can run
